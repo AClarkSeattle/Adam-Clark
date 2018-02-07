@@ -66,6 +66,7 @@
     <Compile Include="Plot.xaml.cs">
       <DependentUpon>Plot.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PlotOutputCSV.cs" />
     <Compile Include="ViewModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>

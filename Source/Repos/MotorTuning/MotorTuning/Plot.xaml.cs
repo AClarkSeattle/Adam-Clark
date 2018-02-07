@@ -27,6 +27,7 @@ namespace MotorTuningWPF
     /// </summary>
     public partial class Plot : UserControl, INotifyPropertyChanged
     {
+        PlotOutputCSV log = new PlotOutputCSV();
         SeriesCollection series = new SeriesCollection();
         private LinearSingleDOF _sys = new LinearSingleDOF(.06, 6000, .081, .32);
         ChartValues<ObservablePoint> plotdata;
@@ -77,6 +78,7 @@ namespace MotorTuningWPF
                 Values = plotdata,
                 PointGeometrySize = 1
             });
+            log.LogPlotCSV(plotdata);
         }
 
         public ChartValues<ObservablePoint> GetPlotData(double res, double range, double m, double k, double c)
