@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotorTuningWPF", "MotorTuni
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemIdentification", "SystemIdentification\SystemIdentification.csproj", "{EA51A8F9-7183-41B8-96E5-0FD06653D04C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChartPlotter", "ChartPlotter\ChartPlotter.csproj", "{55EBE563-768D-4355-869D-3AD3C3F2DA07}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{EA51A8F9-7183-41B8-96E5-0FD06653D04C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA51A8F9-7183-41B8-96E5-0FD06653D04C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA51A8F9-7183-41B8-96E5-0FD06653D04C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55EBE563-768D-4355-869D-3AD3C3F2DA07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55EBE563-768D-4355-869D-3AD3C3F2DA07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55EBE563-768D-4355-869D-3AD3C3F2DA07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55EBE563-768D-4355-869D-3AD3C3F2DA07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

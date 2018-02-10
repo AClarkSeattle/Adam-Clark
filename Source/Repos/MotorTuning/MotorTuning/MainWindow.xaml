@@ -4,10 +4,37 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MotorTuningWPF"
+        xmlns:wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
         Title="Step Response Analyzer" Height="450" Width="550">
-    <Grid>
-        <local:Plot Background = "black" Grid.ColumnSpan="3" Grid.RowSpan="7"></local:Plot>
-    </Grid >
+
+    <Grid Background="black">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width = "1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width = "1*"/>
+            <ColumnDefinition Width ="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height = "1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height = "1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height = "1*" />
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height = "1*"/>
+        </Grid.RowDefinitions >
+
+        <wpf:CartesianChart Background="Black" Series="{Binding SeriesCollection}" Grid.ColumnSpan="3" Grid.RowSpan="7"/>
+        <TextBlock Grid.Column="4" Grid.Row= "0" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Background="Black" Foreground="White" Text="m="></TextBlock>
+        <TextBox Grid.Column="4" Grid.Row= "0" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right" Background="Black" Foreground="White" Text="{Binding m_parameter, Mode=TwoWay, StringFormat=0.00, NotifyOnSourceUpdated=True}"
+             Width="100"/>
+        <TextBlock Grid.Column="4" Grid.Row= "1" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Background="Black" Foreground="White" Text="c="></TextBlock>
+        <TextBox Grid.Column="4" Grid.Row= "1" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right" Background="Black" Foreground="White" Text="{Binding c_parameter, Mode=TwoWay, StringFormat=0.00, NotifyOnSourceUpdated=True}"
+             Width="100"/>
+        <TextBlock Grid.Column="4" Grid.Row= "2" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Background="Black" Foreground="White" Text="k="></TextBlock>
+        <TextBox Grid.Column="4" Grid.Row= "2" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right" Background="Black" Foreground="White" Text="{Binding k_parameter, Mode=TwoWay, StringFormat=0.00, NotifyOnSourceUpdated=True}"
+             Width="100"/>
+    </Grid>
 
 </Window>

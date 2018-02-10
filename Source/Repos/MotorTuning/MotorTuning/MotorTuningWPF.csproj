@@ -109,6 +109,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ChartPlotter\ChartPlotter.csproj">
+      <Project>{55ebe563-768d-4355-869d-3ad3c3f2da07}</Project>
+      <Name>ChartPlotter</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SystemIdentification\SystemIdentification.csproj">
       <Project>{ea51a8f9-7183-41b8-96e5-0fd06653d04c}</Project>
       <Name>SystemIdentification</Name>

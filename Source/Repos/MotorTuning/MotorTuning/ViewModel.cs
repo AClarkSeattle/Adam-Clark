@@ -5,18 +5,29 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using LiveCharts;
+using LiveCharts.Defaults;
+using LiveCharts.Wpf;
+using ChartPlotter;
 using SystemIdentification;
+using static System.Math;
+
 
 namespace MotorTuningWPF
 {
     //This class is not used.
     public class ViewModel:INotifyPropertyChanged
     {
-        private LinearSingleDOF _sys= new LinearSingleDOF(.06, 6000, .081, .32 );
+        private StepPlot step = new StepPlot();
+        private SeriesCollection _seriesCollection;
+        public SeriesCollection SeriesCollection { get { return _seriesCollection; } set { _seriesCollection = value; NotifyPropertyChanged(); } }
+        private LinearSingleDOF _sys = new LinearSingleDOF(.06, 6000, .081, .32 );
         
         public ViewModel()
-        {      
+        {
+            
             UpdateParameters();
+            SeriesCollection = step.GetPlotSeries(_sys);
         }
          
         #region NotifyPropertyChanged

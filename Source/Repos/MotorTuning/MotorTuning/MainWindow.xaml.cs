@@ -20,10 +20,12 @@ namespace MotorTuningWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+        ViewModel _vm = new ViewModel();
+
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = _vm;
         }
 
     }
