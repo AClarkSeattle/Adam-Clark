@@ -24,8 +24,7 @@ namespace MotorTuningWPF
         private LinearSingleDOF _sys = new LinearSingleDOF(.06, 6000, .081, .32 );
         
         public ViewModel()
-        {
-            
+        {           
             UpdateParameters();
             SeriesCollection = step.GetPlotSeries(_sys);
         }
