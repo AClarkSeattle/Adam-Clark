@@ -11,12 +11,25 @@ namespace SystemIdentification
 {
     public class LinearSingleDOF : INotifyPropertyChanged
     {
-        public LinearSingleDOF(double SteadyStateResponse, double MagnitudeOfStepInput, double PeakOverShoot, double TimeAtPlotPeak)
+        public LinearSingleDOF()
+        {
+
+        }
+
+        public void SetLinearSingleDOF(double SteadyStateResponse, double MagnitudeOfStepInput, double PeakOverShoot, double TimeAtPlotPeak)
         {
             xss = SteadyStateResponse;
             fss = MagnitudeOfStepInput;
             PlotPeakValue = PeakOverShoot;
             tp = TimeAtPlotPeak;
+            UpdateValues();
+        }
+
+        private void UpdateValues()
+        {
+            k = xss!=0?fss /xss:0;
+            m = wn!=Double.NaN? k / Pow(wn, 2):0;
+            c = 2 * DampingRatio * Sqrt(m * k);
         }
 
         private double _xss;
@@ -26,7 +39,7 @@ namespace SystemIdentification
         public double xss
         {
             get { return _xss; }
-            set { _xss = value; }
+            set { _xss = value;}
         }
 
         private double _fss;
@@ -36,15 +49,17 @@ namespace SystemIdentification
         public double fss
         {
             get { return _fss; }
-            set { _fss = value; }
+            set { _fss = value;}
         }
 
+        private double _k;
         /// <summary>
         /// Model Parameter Corresponding to Integral Gain
         /// </summary>
         public double k
         {
-            get { return fss / xss; }
+            get { return _k; }
+            set { _k= value; NotifyPropertyChanged(); }
         }
 
         private double _plotPeakValue;
@@ -84,20 +99,29 @@ namespace SystemIdentification
         public double wn
         { get { return PI / (tp * Sqrt(1 - Pow(DampingRatio, 2))); } }
 
+        private double _m;
         /// <summary>
         /// Model Parameter Corresponding to Derivative Gain
         /// </summary>
         public double m
-        { get { return k / Pow(wn, 2); } }
+        {
+            get { return _m; }
+            set{_m =value; NotifyPropertyChanged();}
+        }
+
+        private double _c;
         /// <summary>
         /// Model Parameter Corresponding to Proportional Gain
         /// </summary>
         public double c
-        { get { return 2 * DampingRatio * Sqrt(m * k); } }
+        {
+            get { return _c; }
+            set{ _c=value; NotifyPropertyChanged(); }
+        }
 
         #region NotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
-        protected void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
+        protected virtual void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
             if (PropertyChanged != null)
                 PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));

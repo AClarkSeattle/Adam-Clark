@@ -8,15 +8,24 @@ using LiveCharts.Defaults;
 using LiveCharts.Wpf;
 using static System.Math;
 using SystemIdentification;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace ChartPlotter
 {
     /// <summary>
     /// Methods for plotting a step function in the time domain.
     /// </summary>
-    public class StepPlot
+    public class StepPlot: AbstractChartPlotterClass, INotifyPropertyChanged
     {
         #region Properties
+        private SeriesCollection _seriesCollection;
+
+        public SeriesCollection SeriesCollection 
+        {
+            get { return _seriesCollection; }
+            private set { _seriesCollection = value; }
+        }
 
         private SeriesCollection Series = new SeriesCollection();
         /// <summary>
@@ -59,5 +68,14 @@ namespace ChartPlotter
             }
             return chartdata;
         }
+
+        #region NotifyPropertyChanged
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            if (PropertyChanged != null)
+                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        #endregion
     }
 }

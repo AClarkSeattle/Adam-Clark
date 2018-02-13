@@ -66,8 +66,6 @@
     <Compile Include="Plot.xaml.cs">
       <DependentUpon>Plot.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PlotOutputCSV.cs" />
-    <Compile Include="ViewModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -112,6 +110,10 @@
     <ProjectReference Include="..\ChartPlotter\ChartPlotter.csproj">
       <Project>{55ebe563-768d-4355-869d-3ad3c3f2da07}</Project>
       <Name>ChartPlotter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MotorTuning.ViewModel\MotorTuning.ViewModel.csproj">
+      <Project>{96addb70-4ccb-44e3-a480-c37d326c34f1}</Project>
+      <Name>MotorTuning.ViewModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\SystemIdentification\SystemIdentification.csproj">
       <Project>{ea51a8f9-7183-41b8-96e5-0fd06653d04c}</Project>

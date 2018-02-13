@@ -29,7 +29,8 @@ namespace MotorTuningWPF
     {
         PlotOutputCSV log = new PlotOutputCSV();
         SeriesCollection series = new SeriesCollection();
-        private LinearSingleDOF _sys = new LinearSingleDOF(.06, 6000, .081, .32);
+        //private LinearSingleDOF _sys = new LinearSingleDOF(.06, 6000, .081, .32);
+        private LinearSingleDOF _sys = new LinearSingleDOF();
         ChartValues<ObservablePoint> plotdata;
 
         #region Private Fields
