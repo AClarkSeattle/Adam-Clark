@@ -18,6 +18,7 @@ namespace MotorTuning.ViewModel
     public class ViewModel:ViewModelBase
     {
         private StepPlot _step = new StepPlot();
+        private SplinePlot _spline = new SplinePlot();
         private SeriesCollection _seriesCollection;
         public SeriesCollection SeriesCollection { get { return _seriesCollection; } set { _seriesCollection = value; NotifyPropertyChanged(); } }
         private LinearSingleDOF _sys = new LinearSingleDOF();
@@ -26,8 +27,9 @@ namespace MotorTuning.ViewModel
         {          
             SubscribeNotifyPropertyChanged(ChartPlotterPropertyChanged);
             SubscribeNotifyPropertyChanged(SystemIdentificationPropertyChanged);
-            _sys.SetLinearSingleDOF(.06, 6000, .081, .32);
-            SeriesCollection = _step.GetPlotSeries(_sys);
+            //_sys.SetLinearSingleDOF(.06, 6000, .081, .32);
+            //SeriesCollection = _step.GetPlotSeries(_sys);
+            SeriesCollection = _spline.GetPlotSeries();
         }
 
         #region Properties and Fields
@@ -54,7 +56,8 @@ namespace MotorTuning.ViewModel
 
         public virtual void ChartPlotterPropertyChanged( object sender, PropertyChangedEventArgs e)
         {
-            var lcl = sender as StepPlot;
+            //var lcl = sender as StepPlot;
+            var lcl = sender as SplinePlot;
             if (lcl == null || e == null) return;
             switch(e.PropertyName)
             {
@@ -95,6 +98,7 @@ namespace MotorTuning.ViewModel
         private void SubscribeNotifyPropertyChanged(PropertyChangedEventHandler SubSysPropertyChanged)
         {
             _step.PropertyChanged += SubSysPropertyChanged;
+            _spline.PropertyChanged += SubSysPropertyChanged;
             _sys.PropertyChanged += SubSysPropertyChanged;
         }
 

@@ -36,10 +36,18 @@
     <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
       <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="MathNet.Numerics, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MathNet.Numerics.4.0.0\lib\net40\MathNet.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="MathNet.Spatial, Version=0.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MathNet.Spatial.0.4.0\lib\net40\MathNet.Spatial.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -51,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractChartPlotterClass.cs" />
+    <Compile Include="SplinePlot.cs" />
     <Compile Include="PlotOutputCSV.cs" />
     <Compile Include="StepPlot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -59,6 +68,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HelperLibrary\HelperLibrary.csproj">
+      <Project>{dd9e2149-354a-4509-bff2-45170710e7a8}</Project>
+      <Name>HelperLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SystemIdentification\SystemIdentification.csproj">
       <Project>{ea51a8f9-7183-41b8-96e5-0fd06653d04c}</Project>
       <Name>SystemIdentification</Name>
